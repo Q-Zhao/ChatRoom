@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+
+	<Client>
+		<!-- Client Login Request Message -->
+		<root>
+			<type>loginrequest</type>
+			<username>{username}</username>
+		</root>
+
+		<!-- Client Exit Message -->
+		<root>
+			<type>client_exit</type>
+			<username>{username}</username>
+		</root>
+
+		<!-- Client Private Chat Exit Message -->
+		<root>
+			<type>client_private_exit</type>
+			<message_sent_from_username>{From-UserName}
+			</message_sent_from_username>
+			<message_sent_to_username>{To-UserName}</message_sent_to_username>
+		</root>
+
+		<!-- Client Send Public Chatting Message -->
+		<root>
+			<type>chat_content</type>
+			<username>{From-UserName}</username>
+			<message>{Chat-Content}</message>
+		</root>
+
+		<!-- Client Send Wisper Chatting Message -->
+		<root>
+			<type>wisper_message</type>
+			<message_sent_from_username>{From-UserName}
+			</message_sent_from_username>
+			<message_sent_to_username>{To-UserName}</message_sent_to_username>
+			<message>{Chat-Content}</message>
+		</root>
+
+		<!-- Client Send Private Chat Request Message -->
+		<root>
+			<type>client_private_request</type>
+			<message_sent_from_username>{From-UserName}
+			</message_sent_from_username>
+			<message_sent_to_username>{To-UserName}</message_sent_to_username>
+		</root>
+
+		<!-- Client Send Private Chat Response Message: ACCEPT -->
+		<root>
+			<type>client_private_response</type>
+			<message_sent_from_username>{From-UserName}
+			</message_sent_from_username>
+			<message_sent_to_username>{To-UserName}</message_sent_to_username>
+			<message>accept</message>
+		</root>
+
+		<!-- Client Send Private Chat Response Message: REJECT -->
+		<root>
+			<type>client_private_response</type>
+			<message_sent_from_username>{From-UserName}
+			</message_sent_from_username>
+			<message_sent_to_username>{To-UserName}</message_sent_to_username>
+			<message>reject</message>
+		</root>
+
+		<!-- Client Send Private Chat Message -->
+		<root>
+			<type>private_chat_content</type>
+			<message_sent_from_username>{From-UserName}
+			</message_sent_from_username>
+			<message_sent_to_username>{To-UserName}</message_sent_to_username>
+			<message>{Chat-Content}</message>
+		</root>
+
+		<!-- Client Send Termination of Private Chat Message -->
+		<root>
+			<type>client_private_exit</type>
+			<message_sent_from_username>{From-UserName}
+			</message_sent_from_username>
+			<message_sent_to_username>{To-UserName}</message_sent_to_username>
+		</root>
+
+	</Client>
+
+	<Server>
+
+		<!-- Server Shut Down Message -->
+		<root>
+			<type>server_shut_down</type>
+		</root>
+
+		<!-- Server Login Response Message: SUCCESS -->
+		<root>
+			<type>loginresponse</type>
+			<message>success</message>
+		</root>
+
+		<!-- Server Login Response Message: USER_EXISTS_ERROR -->
+		<root>
+			<type>loginresponse</type>
+			<message>user_exists_error</message>
+		</root>
+
+		<!-- Server Username List Message -->
+		<root>
+			<type>updated_username_list</type>
+			<message>{element_1}</message>
+			<message>{element_2}</message>
+				. 					.
+				. 					.
+				. 					.
+			<message>{element_n}</message>
+			<log>{log information}</log>
+		</root>
+
+		<!-- Server Chat Content Response -->
+		<root>
+			<type>chat_content_response</type>
+			<username>{From-UserName}</username>
+			<message>{Chat-Content}</message>
+		</root>
+
+	</Server>
+
+</schema>
